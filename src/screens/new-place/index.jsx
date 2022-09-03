@@ -3,21 +3,26 @@ import { View, Text, ScrollView, TextInput, Button } from "react-native";
 import { useDispatch } from "react-redux";
 
 import { ImageSelector } from "../../components";
-import { addPlace } from "../../store/place.slice";
+import { savePlace } from "../../store/place.slice";
 import colors from "../../utils/colors";
 import { styles } from "./styles";
 
 const NewPlace = ({ navigation }) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
 
   const onHandleChange = (text) => {
     setTitle(text);
   };
 
   const onHandleSubmit = () => {
-    dispatch(addPlace(title));
+    dispatch(savePlace(title, image));
     navigation.navigate("Places");
+  };
+
+  const onHandleImageSelect = (imageUrl) => {
+    setImage(imageUrl);
   };
   return (
     <ScrollView style={styles.container}>
@@ -29,7 +34,7 @@ const NewPlace = ({ navigation }) => {
           onChangeText={onHandleChange}
           value={title}
         />
-        <ImageSelector onImage={() => null} />
+        <ImageSelector onImage={onHandleImageSelect} />
         <Button title="Grabar dirección" color={colors.primary} onPress={onHandleSubmit} />
       </View>
     </ScrollView>
