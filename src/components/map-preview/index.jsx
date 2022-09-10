@@ -6,8 +6,8 @@ import { styles } from "./styles";
 
 const MapPreview = ({ children, location, style }) => {
   const { lat, lng } = location || {};
+  console.warn(lat, lng);
   const mapPreviewUrl = location ? URL_MAPS(lat, lng) : "";
-  console.warn(mapPreviewUrl);
   return (
     <View style={{ ...styles.container, ...style }}>
       {location ? <Image style={styles.mapImage} source={{ uri: mapPreviewUrl }} /> : children}

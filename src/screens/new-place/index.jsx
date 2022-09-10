@@ -18,7 +18,7 @@ const NewPlace = ({ navigation }) => {
   };
 
   const onHandleSubmit = () => {
-    dispatch(savePlace(title, image));
+    dispatch(savePlace(title, image, location));
     navigation.navigate("Places");
   };
 
