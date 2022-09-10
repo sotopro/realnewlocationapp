@@ -24,7 +24,6 @@ const ImageSelector = ({ onImage }) => {
     if (!isCameraPermission) return;
 
     const image = await ImagePicker.launchCameraAsync({
-      allowsEditing: true,
       aspect: [16, 9],
       quality: 0.7,
     });
