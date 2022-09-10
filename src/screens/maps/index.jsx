@@ -16,7 +16,6 @@ const Maps = ({ navigation }) => {
   };
 
   const onHandlePickLocation = (event) => {
-    console.warn("event", event.nativeEvent);
     setSelectedLocation({
       lat: event.nativeEvent.coordinate.latitude,
       lng: event.nativeEvent.coordinate.longitude,
@@ -24,7 +23,6 @@ const Maps = ({ navigation }) => {
   };
 
   const onHandleSaveLocation = () => {
-    console.warn(selectedLocation);
     if (selectedLocation) navigation.navigate("NewPlace", { mapLocation: selectedLocation });
   };
 
