@@ -15,4 +15,8 @@ export const styles = StyleSheet.create({
     borderColor: colors.secondary,
     borderWidth: 1,
   },
+  containerActions: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
 });
