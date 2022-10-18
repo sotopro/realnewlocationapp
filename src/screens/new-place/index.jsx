@@ -12,8 +12,6 @@ const NewPlace = ({ navigation }) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
 
-  console.warn("image", image);
-
   const onHandleChange = (text) => {
     setTitle(text);
   };
