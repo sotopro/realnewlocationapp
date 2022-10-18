@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { View, Text, Button, Alert } from "react-native";
 
 import colors from "../../utils/colors";
+import MapPreview from "../map-preview";
 import { styles } from "./styles";
 
 const LocationSelector = ({ onLocation }) => {
@@ -38,13 +39,9 @@ const LocationSelector = ({ onLocation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.preview}>
-        {!pickedLocation ? (
-          <Text>No location select yet.</Text>
-        ) : (
-          <Text>{`lat: ${pickedLocation.lat}, lng: ${pickedLocation.lng}`}</Text>
-        )}
-      </View>
+      <MapPreview location={pickedLocation} style={styles.preview}>
+        <Text>No location select yet.</Text>
+      </MapPreview>
       <Button title="Get Location" color={colors.secondary} onPress={onHandlerLocation} />
     </View>
   );
