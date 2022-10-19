@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import * as Location from "expo-location";
 import React, { useState } from "react";
 import { View, Text, Button, Alert } from "react-native";
@@ -7,6 +8,7 @@ import MapPreview from "../map-preview";
 import { styles } from "./styles";
 
 const LocationSelector = ({ onLocation }) => {
+  const navigation = useNavigation();
   const [pickedLocation, setPickedLocation] = useState(null);
 
   const verifyPermissions = async () => {
@@ -37,12 +39,19 @@ const LocationSelector = ({ onLocation }) => {
     });
   };
 
+  const onHandlerPickMap = () => {
+    const hasPermission = verifyPermissions();
+    if (!hasPermission) return;
+    navigation.navigate("Maps");
+  };
+
   return (
     <View style={styles.container}>
       <MapPreview location={pickedLocation} style={styles.preview}>
         <Text>No location select yet.</Text>
       </MapPreview>
       <Button title="Get Location" color={colors.secondary} onPress={onHandlerLocation} />
+      <Button title="Pick in map" color={colors.primary} onPress={onHandlerPickMap} />
     </View>
   );
 };
