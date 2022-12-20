@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 const PlacesNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Place"
+      initialRouteName="Places"
       screenOptions={{
         headerStyle: {
           backgroundColor: Platform.OS === "android" ? colors.primary : colors.secondary,
