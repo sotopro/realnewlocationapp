@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, Text, ScrollView, TextInput, Button } from "react-native";
 import { useDispatch } from "react-redux";
 
-import { ImageSelector } from "../../components";
+import { ImageSelector, LocationSelector } from "../../components";
 import { savePlace } from "../../store/place.slice";
 import colors from "../../utils/colors";
 import { styles } from "./styles";
@@ -24,6 +24,7 @@ const NewPlace = ({ navigation }) => {
   const onImagePicker = (uri) => {
     setImage(uri);
   };
+  const onLocationPicker = ({ lat, lng }) => {};
   return (
     <ScrollView style={styles.container}>
       <View style={styles.content}>
@@ -34,6 +35,7 @@ const NewPlace = ({ navigation }) => {
           placeholder="Escribe el lugar"
         />
         <ImageSelector onImagePicker={onImagePicker} />
+        <LocationSelector onLocationPicker={onLocationPicker} />
         <Button color={colors.primary} title="Guardar direccion" onPress={onHandleSubmit} />
       </View>
     </ScrollView>
