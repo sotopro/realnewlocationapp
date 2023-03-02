@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TextInput, Button } from "react-native";
 import { useDispatch } from "react-redux";
 
 import { ImageSelector, LocationSelector } from "../../components";
-import { addPlace } from "../../store/place.slice";
+import { savePlace } from "../../store/place.slice";
 import colors from "../../utils/colors";
 import { styles } from "./styles";
 
@@ -14,7 +14,7 @@ const NewPlace = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const onHandlerSubmit = () => {
-    dispatch(addPlace({ title, image, coords }));
+    dispatch(savePlace(title, image, coords));
     navigation.goBack();
   };
 
